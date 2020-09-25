@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Services\ProductLocationService;
-use Illuminate\Http\Request;
 
 
 class ProductController extends Controller
@@ -22,9 +21,9 @@ class ProductController extends Controller
         ProductLocationService $productLocationService
     )
     {
-        $data = $productLocationService->getData(['product_id', 'location_id']);
+        $data = $productLocationService->getSortedData();
 
-        return view('admin.product.unsort', compact('data'));
+        return view('admin.product.sort', compact('data'));
     }
 
 

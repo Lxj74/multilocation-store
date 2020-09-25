@@ -1,31 +1,28 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Location;
-use App\Services\LocationService;
-use App\Services\ProductLocationService;
-use App\Services\ProductService;
-use Auth;
+
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     /**
-     * Show the application dashboard.
+     * Create a new controller instance.
      *
-     * @return \Illuminate\View\View
+     * @return void
      */
-    public function index(
-        ProductService $productService,
-        LocationService $locationService,
-        ProductLocationService $productLocationService
-    ) {
-        $count = $productService->getCount();
-        $products = $productService->getData();
-        $locations = $locationService->getData();
+    public function __construct()
+    {
+        $this->middleware('auth');
     }
 
-    public function logout()
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
     {
-      Auth::logout();
+        return view('admin.dashboard');
     }
 }

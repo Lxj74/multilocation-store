@@ -10,4 +10,9 @@ class LocationService
 
         return $locations;
     }
+
+    public function getCount(){
+
+        return Location::all()->count();
+    }
 }

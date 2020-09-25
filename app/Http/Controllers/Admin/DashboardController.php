@@ -18,7 +18,8 @@ class DashboardController extends Controller
       $count = $productService->getCount();
       $products = $productService->getData();
       $locations = $locationService->getData();
+      $locationCount = $locationService->getCount();
 
-      return view('admin.dashboard', compact('count', 'products', 'locations'));
+      return view('admin.dashboard', compact('count', 'products', 'locations', 'locationCount'));
     }
 }

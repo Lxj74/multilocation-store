@@ -10,11 +10,11 @@
                 <div class="card">
                     <!-- Card header -->
                     <div class="card-header border-0">
-                        <h3 class="mb-0">Courses</h3>
+                        <h3 class="mb-0">Products</h3>
                     </div>
                     <!-- Light table -->
                     <div class="table-responsive">
-                        <table class="table align-items-center table-flush">
+                        <table id="dtable" class="table align-items-center table-flush">
                             <thead class="thead-light">
                                 <tr>
                                     <th scope="col" class="sort" data-sort="name">S/N</th>
@@ -57,4 +57,12 @@
         @include('admin.layouts.footers.footer')
     </div>
 @endsection
+
+@push('custom-script')
+    <script>
+        $(document).ready( function () {
+            $('#dtable').DataTable();
+        } );
+    </script>
+@endpush
 
